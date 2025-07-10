@@ -9,43 +9,54 @@ function App() {
     {
       id: 1,
       text: "Learn JS",
+      isEditing: false
     },
     {
       id: 3,
       text: "Learn React",
+      isEditing: false
     },
   ]);
 
   const remove = (id) => {
-    setTodos(todos.filter((todo) => {
-      return todo.id !== id
-    }))
-    setTodos("")
+    setTodos(todos.filter((todo) => todo.id !== id))
   }
 
   const add = () => {
-    if (value.trim() ==="") {
+    if (value.trim() === "") {
       return
     }
 
     setTodos([...todos, {
       id: Math.random(),
-      text: value
+      text: value,
+      isEditing: false
     }])
 
     setValue("");
   }
 
-
   const handleChange = (e) => {
     setValue(e.target.value)
+  }
+
+  const startEditing = (id) => {
+    setTodos(todos.map(todo => 
+      todo.id === id ? { ...todo, isEditing: true } : todo
+    ));
+  }
+
+  const stopEditing = (id, newText) => {
+    setTodos(todos.map(todo => 
+      todo.id === id ? { ...todo, isEditing: false, text: newText } : todo
+    ));
   }
 
   return (
     <>
       <Input handleChange={handleChange} value={value} />
       <Button onClick={add} />
-      <Lists todos={todos} remove={remove} />
+      <Lists todos={todos} remove={remove} startEditing={startEditing} stopEditing={stopEditing} />
     </>
   )
 }
