@@ -1,5 +1,7 @@
-export function Input({handleChange, value}) {
+import { memo } from "react";
 
+function Input({handleChange, value}) {
+    console.log("re-remfer-input");
 
     return (
         <div>
@@ -9,3 +11,5 @@ export function Input({handleChange, value}) {
         </div>
     )
 }
+
+export default memo(Input)
