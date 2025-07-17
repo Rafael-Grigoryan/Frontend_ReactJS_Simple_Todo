@@ -2,6 +2,8 @@ import { useCallback, useState } from "react";
 import Input from "./components/Input";
 import { Lists } from "./components/Lists";
 import { Button } from "./components/Button";
+import { Counter } from "./components/Counter";
+import { CounterTimeout } from "./components/CounterTimeout";
 import "./App.css"
 
 function App() {
@@ -50,6 +52,8 @@ function App() {
       <Input handleChange={handleChange} value={value} />
       <Button onClick={add} />
       <Lists todos={todos} remove={remove}/>
+      <Counter />
+      <CounterTimeout />
     </>
   );
 }

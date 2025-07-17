@@ -1,8 +1,6 @@
 import { memo } from "react";
 
 function Input({handleChange, value}) {
-    console.log("re-remfer-input");
-
     return (
         <div>
             <label>
