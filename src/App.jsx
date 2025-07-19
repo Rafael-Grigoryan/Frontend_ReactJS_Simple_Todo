@@ -3,8 +3,7 @@ import Input from "./components/Input";
 import { Lists } from "./components/Lists";
 import { Button } from "./components/Button";
 import { Counter } from "./components/Counter";
-import { CounterTimeout } from "./components/CounterTimeout";
-import "./App.css"
+import "./App.css";
 
 function App() {
   const [value, setValue] = useState("");
@@ -12,31 +11,36 @@ function App() {
     {
       id: 1,
       text: "Learn JS",
+      subText: [
+        { text1: "Learn Array Method" },
+        { text2: "Learn Object" },
+        { text3: "Learn Promise" },
+      ]
     },
     {
       id: 3,
       text: "Learn React",
+      subText: [
+        { text1: "Learn Components" },
+        { text2: "Learn useState hook" },
+        { text3: "Learn useRef hook" },
+      ]
     },
   ]);
 
   const remove = (id) => {
-    setTodos(
-      todos.filter((todo) => {
-        return todo.id !== id;
-      })
-    );
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   const add = () => {
-    if (value.trim() === "") {
-      return;
-    }
+    if (value.trim() === "") return;
 
     setTodos([
       ...todos,
       {
         id: Math.random(),
         text: value,
+        subText: [],
       },
     ]);
 
@@ -51,9 +55,8 @@ function App() {
     <>
       <Input handleChange={handleChange} value={value} />
       <Button onClick={add} />
-      <Lists todos={todos} remove={remove}/>
+      <Lists todos={todos} remove={remove} />
       <Counter />
-      <CounterTimeout />
     </>
   );
 }
