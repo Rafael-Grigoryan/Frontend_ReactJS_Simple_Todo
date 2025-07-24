@@ -1,11 +1,23 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 export function Navbar() {
   return (
-    <nav className="container">
+    <div className="container">
+      <nav className="navbar-container">
         <h1>All Project</h1>
-        <Link to="/todo">Todo List</Link>
-        <Link to="/counter">Counter</Link>
-    </nav>
-  )
+        <Link to="/" className="navbar-item">
+          Home
+        </Link>
+        <Link to="/todo" className="navbar-item">
+          Todo List
+        </Link>
+        <Link to="/counter" className="navbar-item">
+          Counter
+        </Link>
+        <Link to="/cat" className="navbar-item">
+          Cat API
+        </Link>
+      </nav>
+    </div>
+  );
 }
