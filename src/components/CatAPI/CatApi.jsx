@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 
 export function CatApi() {
   const [catsData, setCatsData] = useState([]);
-  const [selectedCat, setSelectedCat] = useState(null);
+  const [selectedCat, setSelectedCat] = useState(false);
 
   const fetchCatData = async () => {
     try {
       const response = await fetch(
-        "https://api.thecatapi.com/v1/images/search?limit=10&has_breeds=1",
+        "https://api.thecatapi.com/v1/images/search?limit=5&has_breeds=1",
         {
           headers: {
             "x-api-key":
@@ -36,7 +36,7 @@ export function CatApi() {
               alt="cat"
               width="150px"
               height="150px"
-              onClick={() => setSelectedCat(cat.url)}
+              onClick={() => setSelectedCat(cat)}
               style={{ cursor: "pointer" }}
             />
           </div>
@@ -45,7 +45,7 @@ export function CatApi() {
 
       {selectedCat && (
         <div
-          onClick={() => setSelectedCat(null)}
+          onClick={() => setSelectedCat(false)}
           style={{
             position: "fixed",
             top: 0,
@@ -56,11 +56,10 @@ export function CatApi() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            zIndex: 9999,
           }}
         >
           <img
-            src={selectedCat}
+            src={selectedCat.url}
             alt="foto cat"
             style={{ maxWidth: "90%", maxHeight: "90%" }}
           />

@@ -8,28 +8,36 @@ import "./index.css";
 import App from "./App.jsx";
 import { Counter } from "./components/Counter/Counter";
 import { TodoList } from "./components/ToDo/TodoList";
+import { CatApi } from "./components/CatAPI/CatApi";
 
-// const router = createBrowserRouter([
-//     {
-//         path: "/",
-//         element: <App />
-//     },
-//     {
-//         path: "/todo",
-//         element: <TodoList />
-//     },
-//     {
-//         path: "/counter",
-//         element: <Counter />
-//     },
-// ])
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/todo", 
+        element: <TodoList />
+      },
+      {
+        path: "/counter",
+        element: <Counter />
+      },
+      {
+        path: "/cat",
+        element: <CatApi />
+      }
+    ]
+  }
+]);
 
-// createRoot(document.getElementById('root')).render(
-//     <RouterProvider router={router} />
-// )
 
-createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
+createRoot(document.getElementById('root')).render(
+    <RouterProvider router={router} />
+)
+
+// createRoot(document.getElementById("root")).render(
+//   <BrowserRouter>
+//     <App />
+//   </BrowserRouter>
+// );
