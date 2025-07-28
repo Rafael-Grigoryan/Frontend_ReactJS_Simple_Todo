@@ -3,11 +3,12 @@ import { useState, useEffect } from "react";
 export function CatApi() {
   const [catsData, setCatsData] = useState([]);
   const [selectedCat, setSelectedCat] = useState(false);
+  const [o, setO] = useState("10");
 
   const fetchCatData = async () => {
     try {
       const response = await fetch(
-        "https://api.thecatapi.com/v1/images/search?limit=5&has_breeds=1",
+        `https://api.thecatapi.com/v1/images/search?limit=${o}&has_breeds=1`,
         {
           headers: {
             "x-api-key":
@@ -24,10 +25,14 @@ export function CatApi() {
 
   useEffect(() => {
     fetchCatData();
-  }, []);
+  }, [o]);
 
   return (
     <div>
+      <select onChange={(e) => setO(e.target.value)} value={o} name="" id="">
+        <option value="5">5</option>
+        <option value="10">10</option>
+      </select>
       {catsData.map((cat) => {
         return (
           <div key={cat.id}>

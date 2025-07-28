@@ -3,8 +3,8 @@ import { Navbar } from "./components/Navbar";
 import { Counter } from "./components/Counter/Counter";
 import { TodoList } from "./components/ToDo/TodoList";
 import { CatApi } from "./components/CatAPI/CatApi";
-import './App.css';
-
+import { Home } from "./components/Home";
+import "./App.css";
 
 function App() {
   return (
@@ -12,6 +12,7 @@ function App() {
       <Navbar />
 
       <Outlet />
+      <Home />
 
       {/* <Routes>
         <Route path="/todo" element={<TodoList />}/>
