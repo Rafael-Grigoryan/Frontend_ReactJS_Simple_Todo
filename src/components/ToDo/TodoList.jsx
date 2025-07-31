@@ -3,7 +3,7 @@ import Input from "./Input";
 import { Lists } from "./Lists";
 import { Button } from "./Button";
 
-export function TodoList() {
+export default function TodoList() {
     const [value, setValue] = useState("");
     const [todos, setTodos] = useState([
       {

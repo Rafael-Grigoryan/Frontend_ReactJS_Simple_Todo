@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 export function CatApi() {
+  const { id } = useParams();
   const [catsData, setCatsData] = useState([]);
   const [selectedCat, setSelectedCat] = useState(false);
   const [show, setShow] = useState("1");
@@ -8,7 +10,7 @@ export function CatApi() {
   const fetchCatData = async () => {
     try {
       const response = await fetch(
-        `https://api.thecatapi.com/v1/images/search?limit=${show}&has_breeds=1`,
+        `https://api.thecatapi.com/v1/images/search?limit=${show}&order=ASC&page=1&category_ids=${id}`,
         {
           headers: {
             "x-api-key":
@@ -25,11 +27,11 @@ export function CatApi() {
 
   useEffect(() => {
     fetchCatData();
-  }, [show]);
+    console.log("run", id);
+  }, [show, id]);
 
   return (
     <div>
-
       <select onChange={(e) => setShow(e.target.value)} value={show}>
         <option value="1">1</option>
         <option value="5">5</option>
