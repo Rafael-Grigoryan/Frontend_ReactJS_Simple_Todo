@@ -10,7 +10,9 @@ import { Counter } from "./components/Counter/Counter";
 import { TodoList } from "./components/ToDo/TodoList";
 import { CatApi } from "./components/CatAPI/CatApi";
 import { NotFound } from "./components/NotFound/NotFound.jsx";
+import { CatCategories } from "./components/CatAPI/CatCategories";
 import { ThemeContextProvider } from "./providers/ThemeContextProvider.jsx";
+import { Test } from "./components/CatAPI/Test";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "/cat",
         element: <CatApi />,
+      },
+      {
+        path: "/cat-category",
+        element: <CatCategories />,
+      },
+      {
+        path: "/cat-test",
+        element: <Test />,
       },
     ],
   },

@@ -17,6 +17,9 @@ export function Navbar() {
         <Link to="/cat" className="navbar-item">
           Cat API
         </Link>
+        <Link to="/cat-category" className="navbar-item">
+          Cat Category
+        </Link>
       </nav>
     </div>
   );
