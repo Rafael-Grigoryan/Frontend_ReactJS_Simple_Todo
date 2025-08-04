@@ -27,7 +27,6 @@ export function CatApi() {
 
   useEffect(() => {
     fetchCatData();
-    console.log("run", id);
   }, [show, id]);
 
   return (

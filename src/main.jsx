@@ -7,10 +7,8 @@ import {
 import "./index.css";
 import App from "./App.jsx";
 import { Counter } from "./components/Counter/Counter";
-// import { TodoList } from "./components/ToDo/TodoList";
 import { CatApi } from "./components/CatAPI/CatApi";
 import { NotFound } from "./components/NotFound/NotFound.jsx";
-import { CatCategories } from "./components/CatAPI/CatCategories";
 import { ThemeContextProvider } from "./providers/ThemeContextProvider.jsx";
 import { lazy, Suspense } from "react";
 const TodoList = lazy(() => import("./components/ToDo/TodoList.jsx"));
@@ -35,15 +33,11 @@ const router = createBrowserRouter([
       </Suspense>
     ),
   },
+  {
+    path: "/counter",
+    element: <Counter />,
+  },
 ]);
-// {
-//   path: "/counter",
-//   element: <Counter />,
-// },
-// {
-//   path: "/cat",
-//   element: <CatApi />,
-// },
 
 createRoot(document.getElementById("root")).render(
   <ThemeContextProvider>

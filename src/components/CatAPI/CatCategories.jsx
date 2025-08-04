@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import "./CatApiStyle.css";
 
 export function CatCategories() {
   const [category, setCategory] = useState([]);
@@ -23,7 +24,14 @@ export function CatCategories() {
       {category.map((elem) => {
         return (
           <div key={elem.id}>
-            <NavLink to={`${elem.id}`}>{elem.name}</NavLink>
+            <NavLink
+              to={`${elem.id}`}
+              className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "active" : ""
+              }
+            >
+              {elem.name}
+            </NavLink>
           </div>
         );
       })}
