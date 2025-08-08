@@ -15,7 +15,7 @@ const TodoList = lazy(() => import("./components/ToDo/TodoList.jsx"));
 
 const router = createBrowserRouter([
   {
-    path: "/cat-category",
+    path: "/",
     element: <App />,
     errorElement: <NotFound />,
     children: [

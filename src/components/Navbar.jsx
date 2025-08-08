@@ -20,6 +20,9 @@ export function Navbar() {
         <Link to="/cat-category" className="navbar-item">
           Cat Category
         </Link>
+        <Link to="/random" className="navbar-item">
+          random
+        </Link>
       </nav>
     </div>
   );
