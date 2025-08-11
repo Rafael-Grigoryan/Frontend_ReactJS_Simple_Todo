@@ -10,8 +10,8 @@ function App() {
     <>
       {/* <PersistentDrawerLeft/> */}
       {/* <Header /> */}
-      <CatPage />
-      {/* <CatCategories /> */}
+      {/* <CatPage /> */}
+      <CatCategories />
       {/* <Navbar/> */}
       <Outlet />
       {/* <Home /> */}

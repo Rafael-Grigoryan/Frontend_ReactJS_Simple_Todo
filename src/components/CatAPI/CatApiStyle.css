@@ -4,11 +4,14 @@ a {
   font-size: 30px;
 }
 
-a.active {
-  color: red;
-}
-
 a:hover{
-  color: blue;
+  color: goldenrod;
 }
 
+.active-link {
+  color: goldenrod;
+}
+
+.default-link {
+  color: black;
+}
